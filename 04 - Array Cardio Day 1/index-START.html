@@ -42,16 +42,13 @@
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
 
-
-    const inventorNames = inventors.map( function(inventor){
-      if(inventor.year >= 1500 && inventor.year < 1600 ) {
-        return true;
-      }
-    });
-
-    function myFunction() {
-      inventorNames = inventors.map(first+', '+last);
+    function getFullName(item, index) {
+        var fullname = [item.first,item.last].join(" ");
+        return fullname;
     }
+
+    let inventorNames = inventors.map(getFullName);
+
     console.log(inventorNames);
 
     // Array.prototype.sort()
