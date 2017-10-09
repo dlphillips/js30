@@ -64,7 +64,7 @@
 
     const bdSort = inventors.sort((a, b) => a.year > b.year ? 1 : -1 );
 
-    //  
+    // if a.year > b.year then swap postions in array. sort loops through entire array 
 
     console.table(bdSort);
 
@@ -72,7 +72,22 @@
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
 
+    const totYears = inventors.reduce((total, inventor) => {
+
+      return total + (inventor.passed - inventor.year);
+
+    },0);
+
+    // ,0 above sets total to 0 on first loop through array
+
+    console.log(totYears);
+
+
     // 5. Sort the inventors by years lived
+
+    const ageSort = inventors.sort((a, b) => (a.passed - a.year) > (b.passed - b.year) ? 1 : -1 );
+
+    console.table(ageSort);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
