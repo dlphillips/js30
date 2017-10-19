@@ -17,6 +17,7 @@
       p.style.fontSize = '50px';
     }
 
+    const p = document.querySelector('p');
     // Regular
     console.log('hello');
 
@@ -36,16 +37,29 @@
     console.info('This is a INFO message');
 
     // Testing
+    console.assert(1===2,'these numbers are not equal');
 
     // clearing
+    // console.clear(); 
 
     // Viewing DOM Elements
+    console.dir(p);
 
     // Grouping together
-
+    // console.group(`${dogs.name}`);
     // counting
 
     // timing
+
+    console.table(dogs);
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/dlphillips')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
 
   </script>
 </body>
