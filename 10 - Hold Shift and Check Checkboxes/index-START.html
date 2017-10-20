@@ -99,6 +99,19 @@
   </div>
 
 <script>
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', handlecheck));
+
+  let lastChecked;
+
+  function handlecheck(e) {
+    if (e.shiftKey && this.checked) { // clicking with shift key pressed');
+        console.log('clicking with shift key pressed');
+    }
+
+    lastChecked=this;
+  }
 </script>
 </body>
 </html>
