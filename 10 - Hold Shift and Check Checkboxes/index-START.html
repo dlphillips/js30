@@ -106,8 +106,17 @@
   let lastChecked;
 
   function handlecheck(e) {
+    let inBetween = false;
     if (e.shiftKey && this.checked) { // clicking with shift key pressed');
-        console.log('clicking with shift key pressed');
+      checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+            console.log('starting to check in between');            
+          }
+          if (inBetween) {
+              checkbox.checked = true; 
+          }
+      });
     }
 
     lastChecked=this;
