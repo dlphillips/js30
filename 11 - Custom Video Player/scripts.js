@@ -49,3 +49,4 @@ ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', scrub);
+
