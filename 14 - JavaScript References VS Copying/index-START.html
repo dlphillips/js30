@@ -14,19 +14,30 @@
 
     // and we want to make a copy of it.
 
-    // You might think we can just do something like this:
+     // You might think we can just do something like this:
+
+    const players2 = players;
 
     // however what happens when we update that array?
+
+    players[3] = 'Lux';
 
     // now here is the problem!
 
     // oh no - we have edited the original array too!
 
+    console.log( players, players2);
+
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    // assigning a new variable with a value of an existing array creates a reference to the original array... not a copy
+    // Javascript always passes by value, but in an array or object, the value is a reference to it, so you can 'change' the contents. Primitive type variable like string,number are always pass as pass by value. Array and Object is passed as pass by reference or pass by value based on these two condition.
 
     // So, how do we fix this? We take a copy instead!
 
     // one way
+
+    
 
     // or create a new array and concat the old one in
 
