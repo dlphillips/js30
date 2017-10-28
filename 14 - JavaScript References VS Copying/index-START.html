@@ -52,9 +52,18 @@
     team5[3] ='new team5 player';
     console.log('team5: ', team5);
 
+    const team6 = Array.from(players); 
+    team6[3] ='new team6 player';
+    console.log('team6: ', team6);
+
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
+
+    const person = {
+        name: 'Dan',
+        age: 51
+    };
 
     // with Objects
 
@@ -62,9 +71,35 @@
 
     // how do we take a copy instead?
 
-    // We will hopefully soon see the object ...spread
+    const dan2 = Object.assign({}, person);
+    console.log('Dan from Person: ',dan2);
 
+    const youngerDan  = Object.assign({}, person, {age: 26});
+    console.log('Young Dan: ',youngerDan);
+
+    const detailDan  = Object.assign({}, person, {age: 26, favfood: 'Pizza'});
+    console.log('Detail Dan: ',detailDan);
+
+    // We will hopefully soon see the object ...spread
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+    const deepDan = {
+        name: 'Dan',
+        age: 51,
+        contact: {
+            twitter: '@dlphillips',
+            email: 'dlphillips@gmail.com'
+        }
+    };
+    // console.log('deepDan', deepDan);
+
+    const deepDan2 = JSON.parse(JSON.stringify(deepDan)); // convert original obj to string then back to JSON ... "poor man's deep clone"
+    deepDan2.contact.twitter = '@deepDan2';
+
+    console.log('deepDan', deepDan);
+    console.log('deepDan2', deepDan2);
+
+
 
   </script>
 
