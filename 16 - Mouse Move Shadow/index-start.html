@@ -44,6 +44,12 @@
 
     let { offsetX: x, offsetY: y} = e; //es6 destructuring 
 
+    if (this !== e.target) { // if this <> the targeted value from the eventlistener
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+
+    console.log(x, y);
 
   }
 
