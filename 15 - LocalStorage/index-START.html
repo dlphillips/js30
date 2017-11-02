@@ -28,7 +28,7 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('items')) || []; // on page load, if items exists in localStorage, store to variable. If not, create empty object
 
   function addItem(e) {
     e.preventDefault();
@@ -39,6 +39,7 @@
     }
     items.push(item);
     populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
   }
 
@@ -53,9 +54,14 @@
     }).join('');
   }
 
+  function toggleDone(e) {
+    alert('hello');
+  }
 
   addItems.addEventListener('submit', addItem); // 'submit' gets fired on enter or button click
+  itemsList.addEventListener('click', toggleDone); // 'click' gets fired on click to any item on the unordered list
 
+  populateList(items, itemsList);
 
 </script>
 
