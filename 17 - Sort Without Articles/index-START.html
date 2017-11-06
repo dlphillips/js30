@@ -40,6 +40,8 @@
     }
 
   </style>
+  
+  <button id='rev'>Reverse</button>
 
   <ul id="bands"></ul>
 
@@ -50,6 +52,9 @@ function strip(bandname) {
     return bandname.replace(/^a |the |an /i, '').trim();
 }
 
+const sortBtn = document.getElementById('rev');
+
+// document.addEventListener("click", revSort);
 
 const bandSort = bands.sort(function(a,b) {
     if (strip(a) > strip(b) ) {
@@ -60,9 +65,15 @@ const bandSort = bands.sort(function(a,b) {
 });
 
 const bsHTML = bandSort.map(tag => `<li>${tag}</li>`).join('\n');
-
 const bandhtml = document.getElementById('bands');
 bandhtml.innerHTML = bsHTML;
+
+sortBtn.onclick = function revSort() {
+  bandSort.reverse();
+  const bsHTML = bandSort.map(tag => `<li>${tag}</li>`).join('\n');
+  const bandhtml = document.getElementById('bands');
+  bandhtml.innerHTML = bsHTML;
+}
 
 </script>
 
